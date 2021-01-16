@@ -35,3 +35,9 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 ### Support or Contact
 
 Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+
+### issues
+
+域名、Jekyll配置如新增index生效都是有延迟的
+
+绑定域名我设置了域名解析CNAME，开启pages和domain三个部分
