@@ -1,0 +1,104 @@
+
+<html>
+	<head>
+		<style>
+			#clock
+			{
+				position: absolute;
+				left: 200px;
+				top: 50px;
+				height: 200px;
+				width: 200px;
+				background-color: rgb(23, 44, 60);
+				border-style: solid; 
+				border-width: 3px;
+				border-color: rgb(39, 72, 98);
+				border-radius:105px;
+				-webkit-box-shadow: 2px 0px 10px rgba(0,0,0,0.5);
+			}
+			.scale
+			{
+				position: absolute;
+				left: 98px;
+				top: 90px;
+				height: 20px;
+				width: 4px;
+				background-color: rgb(153, 80, 84);
+				-webkit-box-shadow: 2px 0px 10px rgba(0,0,0,0.5);
+			}
+			#hour_point
+			{
+				position: absolute;
+				left: 95px;
+				top: 80px;
+				height: 40px;
+				width: 8px;
+				border-radius: 5px;
+				background-color: rgb(217, 104, 49);
+				-webkit-box-shadow: 2px 0px 15px rgba(0,0,0,0.5);
+			}
+			#min_point
+			{
+				position: absolute;
+				left: 97px;
+				top: 70px;
+				height: 60px;
+				width: 4px;
+				border-radius: 2px;
+				background-color: rgb(217, 104, 49);
+				-webkit-box-shadow: 2px 0px 10px rgba(0,0,0,0.5);
+			}
+			#sec_point
+			{
+				position: absolute;
+				left: 99px;
+				top: 60px;
+				height: 80px;
+				width: 2px;
+				background-color: rgb(217, 104, 49);
+				-webkit-box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+			}
+			#pin
+			{
+				position: absolute;
+				left: 90px;
+				top: 90px;
+				height: 16px;
+				width: 16px;
+				opacity: 1;
+				background-color: rgb(230, 179, 112);
+				border-radius:8px;
+				-webkit-box-shadow: 1px 1px 2px rgba(230, 179, 112);
+			}
+		</style>
+	</head>
+	<body>
+		<div id = 'clock'>
+			<script>
+				for (i = 0;i < 12;++i)
+					document.write("<div class = 'scale'></div>");
+			</script>
+			<div id = 'hour_point'></div>
+			<div id = 'min_point'></div>
+			<div id = 'sec_point'></div>
+			<div id = 'pin'></div>
+		</div>
+	</body>
+	<script>
+		scales = document.getElementsByClassName("scale");
+		for (i = 0;i < 12;++i)
+			scales[i].style.webkitTransform = "rotate(" + i * 30 + "deg) translate(0, -80px)";
+		hour = document.getElementById('hour_point');
+		min = document.getElementById('min_point');
+		sec = document.getElementById('sec_point');
+		function showTime()
+		{
+			Time = new Date();
+			hour.style.webkitTransform = "rotate(" + (Time.getHours() * 30 + Time.getMinutes() * 0.5) + "deg) translate(0, -20px)";
+			min.style.webkitTransform = "rotate(" + Time.getMinutes() * 6 + "deg) translate(0, -30px)";
+			sec.style.webkitTransform = "rotate(" + Time.getSeconds() * 6 + "deg) translate(0, -40px)";
+			setTimeout("showTime()", 50);
+		}
+		showTime();
+	</script>
+</html>
